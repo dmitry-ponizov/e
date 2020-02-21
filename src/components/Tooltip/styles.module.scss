@@ -1,0 +1,66 @@
+@import '../../styles/variables';
+
+.container {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  &:hover .tooltip{
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.tooltip {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: 10px;
+  left: 50%;
+  margin-left: -20px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.18);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: $darkColor;
+  padding: 8px 12px;
+  white-space: nowrap;
+  transition: all $baseTransition;
+  .disabled &{
+    display: none;
+  }
+  .dark &{
+    color: #fff;
+    background-color: $darkColor;
+  }
+  em{
+    font-style: normal;
+    color: $lightColor;
+  }
+  &:after,
+  &:before{
+    position: absolute;
+    top: 100%;
+    left: 12px;
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 8px solid transparent;
+    border-top-color: #fff;
+  }
+  &:before{
+    border-top-color: rgba(0, 0, 0, 0.18);
+    margin-top: 1px;
+  }
+  .dark &:after,.dark &:before{
+    color: #fff;
+    border-top-color: $darkColor;
+  }
+  .dark &:before{
+    border-top-color: rgba(255, 255, 255, 0.18);
+    margin-top: 1px;
+  }
+}

@@ -1,0 +1,1 @@
+define(["require","exports","angular"],function(e,t,i){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e){this.CreditWiseWidgetService=e,this.content=e.creditWiseBaseState}return e.$inject=["CreditWiseWidgetService"],e}();t.CreditWiseWidgetController=r,i.module("CreditWiseWidgetModule").controller("CreditWiseWidgetController",r)});

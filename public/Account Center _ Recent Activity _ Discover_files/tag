@@ -1,0 +1,11 @@
+BrightTag.site('p9zWtoq',function(s){
+s.script('//s.btstatic.com/lib/92e0d137e620af7e1d816654c493d4e23bf644e8.js?v\x3d2').script('https://www.googletagmanager.com/gtag/js?id\x3dDC-3470633').script('//s.btstatic.com/lib/256895c4fbbef9d430618cb36461982685d4f114.js?v\x3d2').script('//s.btstatic.com/lib/0c69d262aa92198c2c1e39ada1c55b04bb476c3d.js?v\x3d2').script('//s.btstatic.com/lib/81f62d5a84dc685eca2a003293b4de89097dbc56.js?v\x3d2').script('//s.btstatic.com/lib/4dfabfe8fbc21ce1423e9d0a7e674da0347c989d.js?v\x3d2').script('//s.btstatic.com/lib/ddad649bc6cb75ab734f7877f3b65c673be0caf1.js?v\x3d2').wait(function(){
+s.dbe('pageurl', 'window.location.href',{pageId:2056813});
+s.domready(function(){
+s.tag('\x3cscript type\x3d\x22text/javascript\x22\x3e\n        (function(f) {\n          var n \x3d function() {\n            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);\n          };\n          f.fbq \x3d f.fbq ? f.fbq : n;\n          f._fbq \x3d f._fbq ? f._fbq : n;\n          n.push \x3d n;\n          n.loaded \x3d !0;\n          n.version \x3d \x272.5\x27;\n          n.agent \x3d \x27sig\x27;\n          n.queue \x3d [];\n          f.fbq(\x27init\x27, "1649740848667414");\n          if(true){\n            f.fbq(\x27track\x27, \x27PageView\x27);\n          }\n        })(window);\n      \x3c/script\x3e\n      \x3cscript async type\x3d\x22text/javascript\x22 src\x3d\x22https://connect.facebook.net/en_US/fbevents.js\x22\x3e\x3c/script\x3e',{tagId:5155919});
+s.secondary(function(c){
+c.when('(bt_data(\x27pageurl\x27).indexOf(\x22customersvcs/universalLogin/logoff_confirmed\x22) \x3e -1 || bt_data(\x27pageurl\x27).indexOf(\x22cardmembersvcs/rewards/app/submitOrder\x22) \x3e -1)').fire(5302885);
+});
+});
+});
+});

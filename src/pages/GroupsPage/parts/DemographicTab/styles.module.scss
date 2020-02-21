@@ -1,0 +1,34 @@
+@import '../../../../styles/variables';
+
+.tabContent {
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+  padding: 40px 32px;
+}
+
+.checkbox {
+  margin-bottom: 24px;
+}
+
+.separator {
+  margin: 16px 0 40px;
+  height: 1px;
+  background: $grayColor;
+}
+
+.dtRow {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 7px 0;
+  font-weight: 600;
+  strong{
+    width: 124px;
+    margin-right: 32px;
+  }
+  span {
+    color: $darkColor;
+    font-weight: 500;
+  }
+}

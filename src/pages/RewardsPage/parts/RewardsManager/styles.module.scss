@@ -1,0 +1,14 @@
+@import '../../../../styles/variables';
+
+.status {
+  background: $darkColor;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  &.active{
+    background: $successColor;
+  }
+}
+
+

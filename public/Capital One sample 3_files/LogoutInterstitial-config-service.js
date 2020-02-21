@@ -1,0 +1,1 @@
+define(["require","exports","angular"],function(e,i,t){"use strict";Object.defineProperty(i,"__esModule",{value:!0});var o=function(){function e(e){this.easeCoreFiles=e,this.config=[]}return e.$inject=["easeCoreFiles"],e}();t.module("LogoutInterstitialModule").service("LogoutInterstitialConfigService",o)});

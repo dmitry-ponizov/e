@@ -1,0 +1,25 @@
+@import '../../styles/variables';
+
+.container{
+  position: fixed;
+  bottom: 4px;
+  right: 4px;
+  width: 320px;
+  z-index: 20000;
+  @include tablet {
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: auto;
+  }
+}
+
+.message{
+  width: 100%;
+  margin: 4px 0 0;
+  cursor: pointer;
+  @include tablet {
+    margin: 0 0 4px;
+  }
+}

@@ -1,0 +1,147 @@
+@import '../../styles/variables';
+
+.container {
+  background: #073653 url(../../assets/images/bg-login.jpg) no-repeat fixed 50% 0 / cover;
+  display: flex;
+  justify-content: flex-end;
+  @include tablet {
+    min-height: 100vh;
+    padding: 30px;
+    justify-content: center;
+  }
+  @include mobile {
+    background: #fff;
+    padding: 0;
+  }
+}
+
+.leftCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+  opacity: 0;
+  transition: opacity $baseTransition;
+  @include smallDesktop {
+    padding: 30px;
+  }
+  @include tablet {
+    display: none;
+  }
+  .containerInit & {
+    opacity: 1;
+  }
+}
+
+.leftColHolder {
+  flex: 1;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  padding: 30px 160px;
+  min-width: 750px;
+  max-width: 750px;
+  background-color: #fff;
+  border-radius: 28px 0 0 28px;
+  transform: translateX(750px);
+  transition: transform $baseTransition;
+  @include smallDesktop {
+    padding: 30px 100px;
+    min-width: 600px;
+    max-width: 600px;
+    transform: translateX(600px);
+  }
+  @include tablet {
+    padding: 32px 64px 77px;
+    border-radius: 2px;
+    min-width: 440px;
+    max-width: 440px;
+    transform: none;
+    min-height: 0;
+    text-align: center;
+  }
+  @include mobile {
+    padding: 15px;
+    border-radius: 0;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+  .containerInit & {
+    transform: translateX(0);
+  }
+}
+
+.logo {
+  width: 178px;
+}
+
+.introText {
+  font-size: 22px;
+  line-height: 33px;
+  font-weight: 500;
+  color: #fff;
+  @include smallDesktop {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.title {
+  margin-bottom: 36px;
+  @include tablet{
+    margin-bottom: 15px;
+  }
+}
+
+.bottomRow {
+  padding: 20px 0 0;
+  display: flex;
+  align-items: center;
+  @include tablet {
+    padding: 0;
+    flex-direction: column;
+  }
+}
+
+.btnSubmit {
+  width: 192px;
+  margin-right: 24px;
+  @include tablet{
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.loginText {
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.back {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  padding: 3px 0;
+  color: $lightColor;
+  @include tablet {
+    top: 15px;
+    left: 15px;
+  }
+}
+
+.message{
+  margin-top: 15px;
+}
+
+.successMessage{
+  margin: 0 0 30px;
+}

@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+.container{
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.icon {
+  color: $primaryColor;
+  font-size: 10px;
+}
+.optionIcon{
+  font-size: 24px;
+  margin-left: 4px;
+}
+
+.label{
+  position: relative;
+  z-index: 2;
+}
+
+.error {
+  margin-top: 5px;
+  display: block;
+  color: $dangerColor;
+  font: 12px/14px $altFont;
+}

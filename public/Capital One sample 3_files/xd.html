@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!-- saved from url=(0131)https://d1af033869koo7.cloudfront.net/dcf/v1/xd.html#origin=https%3A%2F%2Fmyaccounts.capitalone.com&namespace=cap1enterprise-v1-001 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+</head>
+<body>
+<script type="text/javascript">
+    (function(win, doc, loc) {
+        var ErrorCodes = {
+            UNKNOWN_COMMAND: "UNKNOWN_COMMAND",
+            INVALID_OBJECT: "INVALID_OBJECT",
+            COMMAND_NOT_PROVIDED: "COMMAND_NOT_PROVIDED",
+            LOCALSTORAGE_UNAVAILABLE: "LOCALSTORAGE_UNAVAILABLE",
+            KEY_REQUIRED: "KEY_REQUIRED",
+            NO_DATA_FOUND: "NO_DATA_FOUND"
+        };
+
+        var Utils = {
+            getParamsFromUrl: function() {
+                var hash, pairArr, params={};
+                try {
+                    hash = loc.href.split('#')[1];
+                    pairArr = hash.split('&');
+                    for (var i in pairArr) {
+                        var keyValueArr = pairArr[i].split('=');
+                        params[keyValueArr[0]] = decodeURIComponent(keyValueArr[1]);
+                    }
+                    return params;
+                } catch (err) {
+                    return {};
+                }
+            },
+            noOp: function() {
+            },
+            defer: function(fn, thisArg) {
+                win.setTimeout(function() {
+                    fn.call(thisArg);
+                }, 1);
+            },
+            setNamespace: function(ns) {
+                this._namespace = ns;
+            },
+            getNamespace: function() {
+                return this._namespace;
+            },
+            getNamespacedKey: function(key) {
+                return this._namespace + '||' + key;
+            },
+            stripNamespaceFromKey: function(nsKey) {
+                return nsKey.replace(this._namespace + '||', '');
+            }
+        };
+
+        // TODO: Implement StupidStorageHandler(IE10, IE11, Edge) and
+        //     GrandpaStorageHandler(IE8) when we implement cross-tab sync.
+        // NOTE: Surprisingly IE9 works well with StandardStorageHandler for
+        //     cross-tab sync.
+        var StorageHandler = {
+            _DummyStorageHandler: {
+                set: Utils.noOp,
+                get: Utils.noOp,
+                registerListener: Utils.noOp,
+                initialize: Utils.noOp
+            },
+            _StandardStorageHandler: {
+                set: function(key, value) {
+                    var nsKey = Utils.getNamespacedKey(key);
+                    if (!value) {
+                        this._storage.removeItem(nsKey);
+                    } else {
+                        this._storage.setItem(nsKey, value);
+                    }
+                },
+                _getObject: function() {
+                    var storageData;
+
+                    for (var i=0; i<this._storage.length; i++) {
+                        var nsKey = this._storage.key(i);
+                        if (nsKey.indexOf(Utils.getNamespace())>-1) {
+                            storageData = storageData || {};
+                            storageData[Utils.stripNamespaceFromKey(nsKey)] = this._storage.getItem(nsKey);
+                        }
+                    }
+
+                    return storageData;
+                },
+                get: function(key) {
+                    if (!key) {
+                        return this._getObject();
+                    }
+                    var nsKey = Utils.getNamespacedKey(key);
+
+                    //Life is too short to deal with *null*
+                    return this._storage.getItem(nsKey) || undefined;
+                },
+                registerListener: function(callback, thisArg) {
+                    win.addEventListener("storage", function(eventObj) {
+                        //Sending the complete eventObj, but its extensions may
+                        //have object with key, oldValue and newValue only
+                        callback.call(thisArg, eventObj);
+                    });
+                },
+                initialize: function(configObj) {
+                    this._storage = win.localStorage;
+                }
+            },
+            isLocalStorageAvailable : function() {
+                var store, testPhrase = "by247";
+
+                try{
+                    store = win.localStorage;
+                    store.setItem(testPhrase, testPhrase);
+                    if (store.getItem(testPhrase)==testPhrase){
+                        store.removeItem(testPhrase);
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } catch(e){
+                    return false;
+                }
+            },
+            getInstance: function() {
+                var handler = this.instance;
+
+                if (handler) {
+                    return handler;
+                }
+
+                //TODO: Update logic once there are more StorageHandlers
+                if (!this.isLocalStorageAvailable()) {
+                    handler = this._DummyStorageHandler;
+                } else {
+                    handler = this._StandardStorageHandler;
+                }
+
+                handler.initialize();
+
+                this.instance = handler;
+                return handler;
+            }
+        };
+
+        var CommunicationUtils =  {
+            sendMessage: function(message) {
+                var target = this._parentOrigin;
+                var parentReference = win.parent;
+
+                if (message) {
+                    Utils.defer(function(){
+                        parentReference.postMessage(message, target);
+                    }, this);
+                }
+            },
+            _addMessageListener: function(cb, thisArg){
+                var handler = function(eventObj) {
+                    cb.call(thisArg, eventObj);
+                };
+
+                if (win.addEventListener) {
+                    win.addEventListener("message", handler, false);
+                } else {
+                    win.attachEvent("onmessage", handler);
+                }
+            },
+            initialize: function(configObj) {
+                this._parentOrigin = configObj.origin;
+                this._addMessageListener(configObj.listener, configObj.thisArg);
+                return this;
+            }
+        };
+
+        var CommandCenter = {
+            _commandProcessor: function(command, key, value) {
+                var error, data, replyObject={}, storageData;
+
+
+                switch(command) {
+                    case "get":
+                        if(key) {
+                            replyObject.key = key;
+                            replyObject.value = this._storage.get(key);
+                        } else {
+                            storageData = this._storage.get();
+                            if (!storageData) {
+                                replyObject.error = ErrorCodes.NO_DATA_FOUND;
+                            } else {
+                                replyObject.data = storageData;
+                            }
+                        }
+                        break;
+                    case "set":
+                        if (key) {
+                            replyObject.key = key;
+                            replyObject.value = value;
+                            this._storage.set(key, value);
+                        } else {
+                            replyObject.error = ErrorCodes.KEY_REQUIRED;
+                        }
+                        break;
+                    case "remove":
+                        if (key) {
+                            replyObject.key = key;
+                            this._storage.set(key);
+                        } else {
+                            replyObject.error = ErrorCodes.KEY_REQUIRED;
+                        }
+                        break;
+                    case "init":
+                        if(!StorageHandler.isLocalStorageAvailable()) {
+                            replyObject.error = ErrorCodes.LOCALSTORAGE_UNAVAILABLE;
+                        } else {
+                            storageData = this._storage.get();
+                            if (!storageData) {
+                                replyObject.error = ErrorCodes.NO_DATA_FOUND;
+                            } else {
+                                replyObject.data = storageData;
+                            }
+                        }
+                        break;
+                    default:
+                        replyObject.error = ErrorCodes.UNKNOWN_COMMAND;
+                }
+
+                replyObject.queryCommand = command;
+
+                this._sendReply(replyObject);
+            },
+            _sendReply: function(replyObject) {
+                var reply = JSON.stringify(replyObject);
+                this._communicator.sendMessage(reply);
+            },
+            _commandHandler: function(eventObj) {
+                var eventData, returnData, reply;
+
+                /* Parse request */
+                try {
+                    eventData = JSON.parse(eventObj.data);
+                } catch (err) {
+                    this._sendReply(ErrorCodes.INVALID_OBJECT);
+                }
+
+                /* Execute command, if provided */
+                if (eventData && eventData.command) {
+                    this._commandProcessor(eventData.command, eventData.key, eventData.value);
+                } else {
+                    this._sendReply(ErrorCodes.COMMAND_NOT_PROVIDED);
+                }
+            },
+            initialize: function() {
+                params = Utils.getParamsFromUrl();
+                Utils.setNamespace(params.namespace);
+                this._storage = StorageHandler.getInstance();
+                this._communicator = CommunicationUtils.initialize({
+                    origin: params.origin,
+                    thisArg: this,
+                    listener: this._commandHandler
+                });
+
+                this._commandProcessor("init");
+            }
+        };
+
+        CommandCenter.initialize();
+    })(window, document, location);
+</script>
+
+</body></html>

@@ -1,0 +1,85 @@
+@import '../../../../styles/variables';
+
+.box {
+  width: 1050px;
+  padding: 48px 84px;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.title {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+  color: $primaryColor;
+  padding-bottom: 3px;
+  border-bottom: 1px solid $grayColor;
+  flex: 1;
+}
+
+.btnReset{
+  height: 32px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  width: 190px;
+  color: $darkColor;
+  border: 1px solid $grayColor;
+  border-radius: 2px;
+  background: #fff;
+  margin-left: 16px;
+  padding: 0 4px;
+  i{
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    color: $lightColor;
+  }
+  &:hover{
+    border-color: $secondaryColor;
+    background: none;
+    color: $darkColor;
+  }
+}
+
+.table{
+  margin-bottom: 48px;
+}
+
+.actions{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  margin-left: 16px;
+  width: 198px;
+}
+
+.customSelect{
+  margin: 0;
+}
+
+.valueText{
+  padding: 0 12px;
+  font-size: 16px;
+  line-height: 20px;
+  color: $lightColor;
+}
+
+.customFilter {
+  margin-left: 0;
+}
+
+.customRadioTabs{
+  margin: 0;
+  border-color: transparent;
+}

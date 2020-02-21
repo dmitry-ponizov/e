@@ -1,0 +1,16 @@
+@import '../../styles/variables';
+
+.label {
+  text-align: left;
+  font: 600 14px/16px $baseFont;
+  display: block;
+  margin-bottom: 8px;
+  color: $baseTextColor;
+  transition: color $baseTransition;
+  :local &.focused {
+    color: $primaryColor;
+  }
+  :local &.error {
+    color: $dangerColor;
+  }
+}

@@ -1,0 +1,46 @@
+$baseTransition: 0.3s ease;
+
+$baseFontSize: 14px;
+$baseBgColor: #e7ecf4;
+$baseFont: 'Montserrat', Arial, Helvetica, sans-serif;
+$altFont: 'Open Sans', Arial, Helvetica, sans-serif !important;
+$baseTextColor: #1b1b1b;
+
+$primaryColor: #0f6da6;
+$secondaryColor: #6acbf4;
+$darkColor: #333f50;
+$lightColor: #9ab1bb;
+$grayColor: #d6dce5;
+$ultraLightColor: #eef2f8;
+
+$disabledBgColor: #dfe3e9;
+$disabledTextColor: #7f8fa4;
+
+$successColor: #06b65d;
+$warningColor: #ffcb3d;
+$dangerColor: #e84545;
+$blueColor: #599ac2;
+$seaShell: #f4f8fb;
+
+$xs: 0;
+$sm: 767;
+$md: 1023;
+$lg: 1280;
+$xl: 1920;
+
+@mixin smallDesktop {
+  @media (max-width: $lg - 1) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $md - 1) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: $sm - 1) {
+    @content;
+  }
+}

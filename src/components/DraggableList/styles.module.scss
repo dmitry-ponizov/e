@@ -1,0 +1,241 @@
+@import '../../styles/variables';
+
+.container {
+  z-index: 10;
+  position: relative;
+  margin: 0 20px;
+  width: 200px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+}
+
+.opener {
+  border: 1px solid $grayColor;
+  border-radius: 2px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 30px 0 12px;
+  position: relative;
+  cursor: pointer;
+  .drop & {
+    border-color: $primaryColor;
+    margin-bottom: 12px;
+  }
+}
+
+.label {
+  color: $darkColor;
+  margin-right: 4px;
+}
+
+.value {
+  color: $lightColor;
+}
+
+.icon {
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: $primaryColor;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.drop {
+  position: absolute;
+  left: -116px;
+  top: -12px;
+  right: -20px;
+  padding: 12px 16px 0 28px;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 8px 20px 0 rgba(15, 109, 166, 0.12);
+}
+
+.title {
+  margin-bottom: 8px;
+  display: block;
+  color: $primaryColor;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 5px 0;
+}
+
+.infoIcon {
+  display: inline-flex;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  margin: 0 6px 2px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid $grayColor;
+  background: $ultraLightColor;
+  border-radius: 2px;
+  color: $lightColor;
+  font-size: 14px;
+}
+
+.holder {
+  margin-left: -28px;
+  display: flex;
+  overflow-y: scroll;
+  max-height: 252px;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba($secondaryColor, 0.2);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #6acbf4;
+    border-radius: 3px;
+  }
+}
+
+.numbers {
+  min-width: 28px;
+  max-width: 28px;
+  color: $lightColor;
+}
+
+.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+}
+
+.list {
+  padding-right: 4px;
+  flex: 1;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  :global .sortable-chosen {
+    color: $primaryColor;
+    border-color: rgba($primaryColor, 0.32);
+    background: rgba($secondaryColor, 0.1);
+    box-shadow: 0 4px 8px 0 rgba($primaryColor, 0.18), 1px 0 0 0 rgba($primaryColor, 0.1), 0 1px 0 0 $grayColor;
+    :local .moveIcon {
+      background: $primaryColor;
+      border-color: $primaryColor;
+      color: #fff;
+    }
+  }
+  :global .ignore-drag {
+    border-color: $ultraLightColor;
+    color: $lightColor;
+    cursor: no-drop;
+    :local .moveIcon {
+      background: $grayColor;
+    }
+    :local .visibilityBtn {
+      color: $lightColor;
+      pointer-events: none;
+    }
+  }
+}
+
+.item {
+  cursor: move;
+  display: flex;
+  align-items: center;
+  color: #464754;
+  font-size: $baseFontSize;
+  font-weight: 500;
+  margin: 4px 0;
+  border: 1px solid $grayColor;
+  box-shadow: 0 1px 1px 0 rgba($lightColor, 0.2);
+  border-radius: 2px;
+  height: 34px;
+  width: 100%;
+  background: #fff;
+  position: relative;
+  padding: 4px;
+}
+:global .filterIgnore {
+  pointer-events: none;
+}
+
+.moveIcon {
+  margin-right: 12px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $ultraLightColor;
+  border-radius: 2px;
+  border: 1px solid $grayColor;
+  color: $lightColor;
+  font-size: 16px;
+}
+
+.visibilityBtn {
+  margin-left: 12px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $grayColor;
+  font-size: 24px;
+  &.visibilityBtnActive {
+    color: $primaryColor;
+  }
+}
+
+.itemLabel {
+  flex: 1;
+}
+
+.actions {
+  margin: 8px -16px 0 -28px;
+  padding: 8px 16px;
+  box-shadow: 0 -1px 0 0 $ultraLightColor;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnReset {
+  .container & {
+    height: 32px;
+    color: rgba($darkColor, 0.7);
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    padding: 0;
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+.btnApply {
+  .container & {
+    height: 32px;
+    border-radius: 2px;
+    width: 100px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+  }
+}

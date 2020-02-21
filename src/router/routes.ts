@@ -1,0 +1,61 @@
+const ROUTES = {
+  UI: '/ui',
+
+  LOGIN: '/login',
+  SIGN_UP: '/sign-up',
+  FORGOT_PASSWORD: '/forgot',
+
+  ACCOUNT: '/account',
+  LOCATIONS: '/locations',
+  REWARDS: '/rewards',
+  GROUPS: '/groups',
+  CUSTOMERS: '/customers',
+  CONTENT: '/content',
+  REDEMPTION: '/redemption',
+  FEED: '/feed',
+  MESSAGES: '/messages',
+
+  CUSTOMER_MERCHANTS: '/customer-merchants',
+  CUSTOMER_SETTINGS: '/customer-settings',
+  CUSTOMER_MESSAGES: '/customer-messages',
+  CUSTOMER_FEED: '/customer-feed',
+  CUSTOMER_FEED_SINGLE: '/customer-feed-single',
+};
+
+export const MERCHANT_ROUTES = [
+  ROUTES.ACCOUNT,
+  ROUTES.LOCATIONS,
+  ROUTES.REWARDS,
+  ROUTES.GROUPS,
+  ROUTES.CUSTOMERS,
+  ROUTES.CONTENT,
+  ROUTES.REDEMPTION,
+  ROUTES.FEED,
+  ROUTES.MESSAGES,
+];
+
+export const CUSTOMER_ROUTES = [
+  ROUTES.CUSTOMER_MERCHANTS,
+  ROUTES.CUSTOMER_SETTINGS,
+  ROUTES.CUSTOMER_MESSAGES,
+  ROUTES.CUSTOMER_FEED,
+  ROUTES.CUSTOMER_FEED_SINGLE,
+];
+
+export const PRIVATE_ROUTES = [
+  ROUTES.ACCOUNT,
+  ROUTES.LOCATIONS,
+  ROUTES.REWARDS,
+  ROUTES.GROUPS,
+  ROUTES.CUSTOMERS,
+  ROUTES.CONTENT,
+  ROUTES.REDEMPTION,
+  ROUTES.FEED,
+  ROUTES.MESSAGES,
+
+  ROUTES.CUSTOMER_MERCHANTS,
+  ROUTES.CUSTOMER_SETTINGS,
+  ROUTES.CUSTOMER_MESSAGES,
+];
+
+export default ROUTES;

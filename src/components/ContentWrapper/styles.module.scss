@@ -1,0 +1,61 @@
+@import '../../styles/variables';
+
+.full{
+  flex: 1;
+  padding: 40px 0 80px;
+  background: #e7ecf4;
+  &.dark{
+    background: rgba(0,0,0,0.7);
+  }
+  @include mobile {
+    padding: 16px 0;
+  }
+}
+
+.heading{
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.close{
+  cursor: pointer;
+  position: absolute;
+  right: 100%;
+  top: 8px;
+  margin-right: 12px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba($primaryColor, 0.4);
+  color: $lightColor;
+  font-size: 24px;
+  transition: all $baseTransition;
+  &:hover{
+    color: #fff;
+    background: rgba($secondaryColor, 0.4);
+  }
+}
+
+.title {
+  margin: 0;
+  color: $darkColor;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .dark & {
+    color: #fff;
+  }
+  span {
+    padding-top: 6px;
+    margin-left: 8px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    color: $lightColor;
+  }
+}

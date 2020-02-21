@@ -1,0 +1,5 @@
+$(document).ready(function(){
+    $.getScript("https://wchat.us2.freshchat.com/js/widget.js?rel=81e323336b");
+    $.getScript("https://messaging.discover.com/js/freshchat-common.min.js?rel=81e323336b");
+    $("head").append('<link rel="stylesheet" href="https://messaging.discover.com/css/freshchat-style.min.css?rel=81e323336b" type="text/css" />');
+}); 

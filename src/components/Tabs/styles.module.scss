@@ -1,0 +1,57 @@
+@import '../../styles/variables';
+
+.tabs{
+  white-space: nowrap;
+  background: #f4f8fb;
+  border-radius: 4px 4px 0 0;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  color: $darkColor;
+  position: relative;
+  overflow: hidden;
+  &:before,
+  &:after{
+    position: absolute;
+    width: 16px;
+    bottom: 8px;
+    top: 0;
+    content: '';
+  }
+  &:before{
+    left: 0;
+    background: linear-gradient(to right, #f4f8fb 0%, transparent 100%);
+  }
+  &:after{
+    right: 0;
+    background: linear-gradient(to right, transparent 0%, #f4f8fb 100%);
+  }
+}
+
+.scrollable {
+  padding: 0 16px;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    height: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(106, 203, 244, 0.2);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #6acbf4;
+  }
+}
+
+.tab{
+  display: inline-block;
+  cursor: pointer;
+  border: solid transparent;
+  border-width: 3px 0;
+  padding: 8px 16px;
+  color: $lightColor;
+  transition: all $baseTransition;
+  &.active{
+    color: $darkColor;
+    border-bottom-color: $darkColor;
+  }
+}

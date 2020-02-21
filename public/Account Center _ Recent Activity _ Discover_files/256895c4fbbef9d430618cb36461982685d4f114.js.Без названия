@@ -1,0 +1,24 @@
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-758355272');
+gtag('config', 'AW-1055491036');
+gtag('config', 'AW-960462380');
+gtag('config', 'AW-951021514');
+gtag('config', 'AW-1066537419');
+gtag('config', 'AW-822845142');
+gtag('config', 'AW-1070332633');
+gtag('config', 'AW-991461685');
+gtag('config', 'AW-821881252');
+gtag('config', 'AW-1066330896');
+gtag('config', 'AW-921490406');
+gtag('config', 'AW-947963782');
+gtag('config', 'AW-929072521');
+gtag('config', 'AW-836874103');
+gtag('config', 'AW-79123680');
+gtag('config', 'AW-78103348');
+gtag('config', 'DC-3470633');
+gtag('config', 'DC-4180106');
+gtag('config', 'DC-4774501');
+gtag('config', 'DC-3853263');
+gtag('config', 'DC-8921743');

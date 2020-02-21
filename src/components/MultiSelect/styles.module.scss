@@ -1,0 +1,177 @@
+@import '../../styles/variables';
+
+.wrapper {
+  position: relative;
+  margin-bottom: 24px;
+}
+.wrapperActive{
+  z-index: 999;
+}
+
+.label {
+  z-index: 2;
+  position: relative;
+}
+
+.container {
+  position: relative;
+}
+
+.opener {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  border-radius: 2px;
+  border: 1px solid $grayColor;
+  padding: 5px 32px 5px 12px;
+  color: $darkColor;
+  transition: all $baseTransition;
+  &.openerFlat {
+    border-color: transparent;
+    .containerActive & {
+      border-color: $grayColor;
+    }
+  }
+  &.openerDisabled{
+    cursor: no-drop;
+    background: $grayColor;
+    border-color: $grayColor;
+  }
+}
+
+.innerLabel {
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+.openerValue {
+  flex: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font: 16px/20px $altFont;
+}
+
+.openerIcon {
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  color: $primaryColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.openerIconDefault {
+  font-size: 10px;
+}
+
+.drop {
+  position: absolute;
+  top: -32px;
+  left: -16px;
+  right: -16px;
+  padding-top: 80px;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 8px 20px 0 rgba($primaryColor, 0.12);
+  .containerNoLabel & {
+    top: -16px;
+    padding-top: 64px;
+  }
+}
+
+.description {
+  display: block;
+  color: $primaryColor;
+  font: 14px/22px $baseFont;
+  font-weight: 600;
+  margin-bottom: 4px;
+  padding: 0 16px 0 28px;
+}
+
+.openedOptions {
+  padding: 8px 16px 16px 16px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.optionsList {
+  margin: 0 16px;
+  padding-right: 4px;
+  max-height: 160px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba($secondaryColor, 0.2);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #6acbf4;
+    border-radius: 3px;
+  }
+}
+
+.optionsListInner{
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.option {
+  padding: 8px 12px;
+}
+.checkedOption {
+  background-color: rgba($secondaryColor, 0.2);
+}
+
+.actions {
+  display: flex;
+  box-shadow: 0 -1px 0 0 $ultraLightColor;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: #fff;
+}
+.resetBtn {
+  .container & {
+    height: 32px;
+    color: rgba($darkColor, 0.7);
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    padding: 0;
+    &:hover {
+      background: transparent;
+      color: $secondaryColor;
+    }
+    &:active{
+      background: transparent;
+      color: $secondaryColor;
+    }
+  }
+}
+
+.applyBtn {
+  .container & {
+    height: 32px;
+    border-radius: 2px;
+    width: 100px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+}

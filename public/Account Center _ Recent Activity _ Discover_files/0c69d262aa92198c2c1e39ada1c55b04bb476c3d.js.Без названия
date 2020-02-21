@@ -1,0 +1,5 @@
+var createLinkTag = document.createElement('link');
+createLinkTag.href = "/global/css/oo5_style_signal.css?v=2";
+createLinkTag.rel="stylesheet";
+createLinkTag.type = "text/css";
+document.body.appendChild(createLinkTag);

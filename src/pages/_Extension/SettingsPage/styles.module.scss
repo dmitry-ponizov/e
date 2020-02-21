@@ -1,0 +1,38 @@
+@import '../../../styles/variables';
+
+.heading {
+  margin-top: -56px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.headingBtn {
+  width: 198px;
+  margin-left: 16px;
+  @include mobile {
+    margin: 0 4px;
+    font-size: 14px;
+    padding: 4px 8px;
+    height: 32px;
+  }
+}
+
+.box {
+  padding: 48px 100px;
+  background: #fff;
+  border-radius: 4px;
+  @include mobile {
+    padding: 16px;
+  }
+}
+
+.message {
+  margin-top: 15px;
+}
+
+.boxLast {
+  flex: 1;
+  margin-top: 16px;
+}

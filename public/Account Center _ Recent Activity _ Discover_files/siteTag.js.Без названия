@@ -1,0 +1,33 @@
+var ems_url=['/cardmembersvcs/ems/action/survey','/cardmembersvcs/deals/app/home'];
+var turl = window.location.href;
+var pageTitle =document.title;
+var our_title =['Discover: System Error','Discover Card: System Error','Discover Card: System Unavailable','Technical Difficulties | Discover','Discover Card : epay - TechnicalDifficulties'];
+if(our_title.indexOf(pageTitle) != -1){
+for (urlIdx in ems_url) {
+         if(turl.indexOf(ems_url[urlIdx]) != -1) {
+            customSiteCats = 1;
+         }
+}
+if( typeof customSiteCats == 'undefined' || customSiteCats == 0){
+         var s_code=s.t();if(s_code)document.write(s_code);
+}
+}
+
+function _windowView(){
+var a,
+b=window.innerWidth;
+return a=b>991?"Wide":991>=b&&b>729?"Middle":"Narrow"
+}
+function scGlobalProp(propVal){
+	s.linkTrackVars=s.linkTrackVars+',prop1,prop32';
+	s.eVar58="";
+	s.eVar61="";
+	s.events="";
+	s.list2="";
+	s.prop19="";
+	s.prop32="View Port:"+ _windowView();
+	s.prop1=propVal;
+	s.tl(this,'o',s.prop1);
+};
+
+

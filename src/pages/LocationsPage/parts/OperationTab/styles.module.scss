@@ -1,0 +1,57 @@
+@import '../../../../styles/variables';
+
+.tabContent{
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+  padding: 40px 32px;
+}
+
+.row{
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.weekDay{
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 600;
+  width: 112px;
+  margin-right: 16px;
+  text-transform: capitalize;
+}
+
+.select{
+  margin: 0;
+  width: 120px;
+}
+
+.divider{
+  margin: 0 16px;
+  width: 16px;
+  height: 1px;
+  background: $darkColor;
+}
+
+.checkbox{
+  margin-left: 16px;
+}
+
+.heading{
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.title{
+  margin-left: 128px;
+  width: 94px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  color: $lightColor;
+}
+
+.title2{
+  margin-left: 48px;
+}

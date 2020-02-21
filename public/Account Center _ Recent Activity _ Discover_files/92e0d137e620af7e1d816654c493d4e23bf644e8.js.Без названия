@@ -1,0 +1,7 @@
+  window.SignalSetCookie = function(setCookieName){
+     document.cookie=setCookieName+";session;domain=.discover.com;path=/";
+  };
+  window.SignalReadCookie = function(getCookieName){
+     var getObjct = new RegExp('(?:^|;\\s*)' + (getCookieName).replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') + '=([^;]*)').exec(document.cookie); 
+     return (getObjct === null)?"NULL":getObjct[1];
+  };

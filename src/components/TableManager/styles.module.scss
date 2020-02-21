@@ -1,0 +1,142 @@
+@import '../../styles/variables';
+
+.body {
+  height: 289px;
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    height: auto;
+    max-height: 289px;
+  }
+}
+
+.table {
+  overflow: hidden;
+  color: #fff;
+  font-size: 14px;
+  line-height: 18px;
+}
+.tableHead {
+  border-bottom: 1px solid $darkColor;
+}
+.tableHead{
+  display: flex;
+}
+.tableBody {
+  margin: 4px 4px 4px 0;
+  height: 240px;
+  overflow-y: scroll;
+  @include tablet {
+    height: auto;
+    max-height: 240px;
+  }
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background: rgba(106, 203, 244, 0.2);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #6acbf4;
+    border-radius: 3px;
+  }
+}
+.th{
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  transition: color $baseTransition;
+  &:nth-child(2),
+  &:nth-child(3) {
+    cursor: pointer;
+    &:hover {
+      color: $secondaryColor;
+    }
+  }
+  &:nth-child(1) {
+    padding: 0 16px;
+    min-width: 48px;
+    max-width: 48px;
+  }
+  &:nth-child(2) {
+    flex: 1;
+  }
+  &:nth-child(3) {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 8px;
+    margin-right: 13px;
+    text-align: right;
+    min-width: 96px;
+    max-width: 96px;
+  }
+  > span {
+    margin-left: 8px;
+  }
+}
+
+.tableRow{
+  overflow: hidden;
+}
+
+.td {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-family: $altFont;
+  transition: all $baseTransition;
+  .activeItem & {
+    background-color: rgba($primaryColor, 0.2);
+    color: $secondaryColor;
+  }
+  &:nth-child(1) {
+    float: left;
+    padding: 0 16px;
+  }
+  &:nth-child(2),
+  &:nth-child(3) {
+    cursor: pointer;
+  }
+  &:nth-child(3){
+    overflow: hidden;
+    span{
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+  &:nth-child(2) {
+    float: right;
+    text-align: right;
+    justify-content: flex-end;
+    padding: 0 8px;
+    margin-right: 4px;
+    min-width: 60px;
+    max-width: 60px;
+  }
+}
+
+.thCheckbox {
+  border-color: #fff;
+}
+.tdCheckbox {
+  border-color: rgba($lightColor, 0.3);
+}
+.checkboxActive {
+  border-color: $secondaryColor;
+  background: $secondaryColor;
+  color: $darkColor;
+}
+
+.noResultsText {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  text-align: center;
+  color: $lightColor;
+}

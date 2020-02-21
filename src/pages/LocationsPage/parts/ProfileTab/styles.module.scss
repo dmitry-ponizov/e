@@ -1,0 +1,21 @@
+@import '../../../../styles/variables';
+
+.tabContent{
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+  padding: 40px 32px;
+}
+
+.checkbox{
+  margin-bottom: 24px;
+}
+
+.separator{
+  margin: 16px 0 40px;
+  height: 1px;
+  background: $grayColor;
+}
+
+.datepicker{
+
+}

@@ -1,0 +1,65 @@
+@import '../../styles/variables';
+
+.DayPicker-WeekdaysRow{
+  display: flex;
+  text-align: center;
+  padding: 8px 0;
+  margin: 0 0 8px;
+  border-bottom: 1px solid $ultraLightColor;
+}
+.DayPicker-Weekday{
+  min-width: 14.2857%;
+  max-width: 14.2857%;
+  font-size: 12px;
+  line-height: 16px;
+  color: $lightColor;
+  abbr[title]{
+    text-decoration: none;
+  }
+}
+
+.DayPicker-Week{
+  display: flex;
+  text-align: center;
+}
+.DayPicker-Day{
+  flex: 1;
+  margin: 0 1px 1px 0;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 16px;
+  color: $darkColor;
+  border-radius: 2px;
+  outline: none;
+  &:hover{
+    background: rgba($secondaryColor, 0.2);
+  }
+  &.DayPicker-Day--selected{
+    background: rgba($secondaryColor, 0.15);
+    .datepicker-single &{
+      border-radius: 100px;
+      background: $primaryColor;
+      color: #fff;
+    }
+  }
+  &.DayPicker-Day--start{
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    background: $primaryColor;
+    color: #fff;
+  }
+  &.DayPicker-Day--end{
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background: $primaryColor;
+    color: #fff;
+  }
+  &.DayPicker-Day--outside{
+    pointer-events: none;
+    opacity: 0;
+  }
+}

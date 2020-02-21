@@ -1,0 +1,46 @@
+@import '../../styles/variables';
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  line-height: 16px;
+  color: $darkColor;
+  transition: all $baseTransition;
+  &:hover {
+    color: $secondaryColor;
+  }
+  &.selected {
+    background: rgba($secondaryColor, 0.2);
+    color: $primaryColor;
+  }
+  &.btnIcon {
+    font-size: 8px;
+    color: $primaryColor;
+    &:hover {
+      color: $secondaryColor;
+    }
+  }
+  &:disabled {
+    cursor: default;
+    color: $lightColor;
+  }
+  i {
+    margin: 0 -1px;
+  }
+}

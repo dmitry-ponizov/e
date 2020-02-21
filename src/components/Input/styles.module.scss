@@ -1,0 +1,101 @@
+@import '../../styles/variables';
+
+.container {
+  display: block;
+  width: 100%;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.label {
+  font: 600 14px/16px $baseFont;
+  display: block;
+  margin-bottom: 7px;
+  color: $baseTextColor;
+  transition: color $baseTransition;
+  :local .focused & {
+    color: $primaryColor;
+  }
+  :local .containerError & {
+    color: $dangerColor;
+  }
+}
+
+.error {
+  margin-top: 5px;
+  display: block;
+  color: $dangerColor;
+  font: 12px/14px $altFont;
+}
+
+.inputHolder {
+  position: relative;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  height: 32px;
+  border-radius: 2px;
+  border: 1px solid $grayColor;
+  background: none;
+  font: 16px/20px $altFont;
+  padding: 5px 12px;
+  color: $darkColor;
+  text-overflow: ellipsis;
+  transition: all $baseTransition;
+  :local .focused & {
+    border-color: $primaryColor;
+  }
+  &:disabled {
+    cursor: no-drop;
+    background: $grayColor;
+    border-color: $grayColor;
+  }
+  &::-webkit-input-placeholder {
+    opacity: 1;
+    color: $lightColor;
+  }
+  &:-moz-placeholder {
+    color: $lightColor;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    color: $lightColor;
+    opacity: 1;
+  }
+  &::-moz-placeholder {
+    color: $lightColor;
+    opacity: 1;
+  }
+}
+
+.inputError {
+  padding-right: 30px;
+}
+
+.icon {
+  position: absolute;
+  right: 4px;
+  top: 3px;
+  font-size: 24px;
+  color: $dangerColor;
+  &.datepickerIcon {
+    color: $blueColor;
+  }
+}
+
+.multiline {
+  height: 82px;
+  resize: none;
+}
+
+.datepicker {
+  position: absolute;
+  bottom: 35px;
+  background-color: $baseBgColor;
+  z-index: 9999;
+  border-radius: 2px;
+  border: 1px solid $primaryColor;
+  transition: border $baseTransition;
+}

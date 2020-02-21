@@ -1,0 +1,70 @@
+@import '../../../../../styles/variables';
+
+.search {
+    flex: 1;
+    position: relative;
+    background: $ultraLightColor;
+    border-radius: 2px;
+    display: flex;
+    padding: 0 16px 0 40px;
+    max-width: 232px;
+  }
+  
+.searchIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: $darkColor;
+  }
+  
+.searchField {
+    width: 100%;
+    height: 32px;
+    color: $darkColor;
+    font-size: 16px;
+    line-height: 20px;
+    ::-webkit-input-placeholder {
+      color: $grayColor;
+    }
+    :-moz-placeholder {
+      color: $grayColor;
+    }
+    :-ms-input-placeholder {
+      color: $grayColor;
+    }
+    ::-moz-placeholder {
+      color: $grayColor;
+      opacity: 1;
+    }
+  }
+  
+.contentBox {
+    background: #fff;
+    border-radius: 4px;
+}
+  
+.contentHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 32px;
+    box-shadow: 0 1px 0 0 $ultraLightColor;
+}
+  
+  
+.feedList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 48px;
+}
+
+.contentCard {
+  margin-top: 48px;
+}

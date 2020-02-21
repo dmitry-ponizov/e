@@ -1,0 +1,87 @@
+@import '../../styles/variables';
+
+.container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  background: #fff;
+  color: $darkColor;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.2);
+  text-align: left;
+  @include tablet {
+    border-radius: 0;
+  }
+  &:before,
+  &:after{
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 10px;
+    content: '';
+  }
+  &:after{
+    left: 2px;
+    background: #fff;
+  }
+
+  :local &.danger:before {
+    background: $dangerColor;
+  }
+  :local &.warning:before {
+    background: $warningColor;
+  }
+  :local &.success:before {
+    background: $successColor;
+  }
+  :local &.info:before {
+    background: $secondaryColor;
+  }
+}
+
+.content{
+  flex: 1;
+}
+
+.circle{
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  .danger & {
+    background: $dangerColor;
+  }
+  .warning & {
+    background: $warningColor;
+  }
+  .success & {
+    background: $successColor;
+  }
+  .info & {
+    background: $secondaryColor;
+  }
+}
+
+.icon{
+  font-size: 18px;
+}
+
+.letter{
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

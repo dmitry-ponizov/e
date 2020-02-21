@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+
+.container {
+  background-color: #fff;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.18);
+  margin-bottom: 24px;
+}
+
+.title {
+  font-family: $baseFont;
+  background-color: #eef2f8;
+  text-align: center;
+  color: $darkColor;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 12px 12px 28px;
+  font-weight: 600;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -16px;
+  padding-bottom: 10px;
+  > * {
+    margin: 0 4px;
+  }
+}

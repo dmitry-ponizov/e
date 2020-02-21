@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+
+.holder{
+  overflow: hidden;
+}
+.container {
+  overflow: hidden;
+  top: 0;
+  z-index: 100;
+  &.fixed{
+    position: fixed;
+  }
+}

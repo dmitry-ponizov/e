@@ -1,0 +1,67 @@
+@import '../../styles/variables';
+
+.container {
+  border: 1px solid $grayColor;
+  color: $darkColor;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.title {
+  display: block;
+  background-color: $grayColor;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  padding: 8px 16px;
+}
+
+.body {
+  padding: 16px;
+}
+
+.subTitle {
+  display: block;
+  font-size: 12px;
+}
+
+.item {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  display: flex;
+  & + .item {
+    margin-top: 8px;
+  }
+}
+
+.left {
+  min-width: 24px;
+  max-width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  font-size: 24px;
+  color: $lightColor;
+}
+
+.right {
+  padding-top: 3px;
+  flex: 1;
+}
+
+.itemTitle {
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.subTitle {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+}

@@ -1,0 +1,66 @@
+@import '../../styles/variables';
+
+.button {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 600 16px/18px $baseFont;
+  cursor: pointer;
+  color: #fff;
+  padding: 2px 20px;
+  transition: all $baseTransition;
+  background-color: $primaryColor;
+  :local &.alt{
+    background: #fff;
+    border: 1px solid #d6dce5;
+    color: $lightColor;
+    &:hover{
+      color: $secondaryColor;
+      border-color: $secondaryColor;
+      background: rgba($secondaryColor, 0.15);
+      &:disabled{
+        border-color: $disabledBgColor;
+      }
+    }
+    &:active{
+      color: #fff;
+      background-color: $secondaryColor;
+    }
+    &:disabled{
+      background-color: $disabledBgColor;
+      color: $disabledTextColor;
+    }
+  }
+  &:hover {
+    color: #fff;
+    background-color: lighten($primaryColor, 5%);
+  }
+  &:active{
+    color: #fff;
+    background-color: $secondaryColor;
+  }
+  &:disabled{
+    cursor: default;
+    background-color: $disabledBgColor;
+    color: $disabledTextColor;
+  }
+}
+
+.loading{
+  background: rgba($disabledBgColor, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $primaryColor;
+}

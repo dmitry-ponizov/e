@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 7px;
+  color: $lightColor;
+  transition: color $baseTransition;
+}
+
+.iconTop{
+  margin-bottom: 3px;
+  .desc & {
+    color: $primaryColor;
+  }
+}
+
+.iconBottom{
+  .asc & {
+    color: $primaryColor;
+  }
+}

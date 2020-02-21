@@ -1,0 +1,37 @@
+@import '../../../../../styles/variables';
+
+.criteriaBox {
+    background: #fff;
+    border-radius: 4px;
+    padding: 16px;
+  }
+  
+  .checkboxRow{
+    transition: all $baseTransition;
+  }
+  
+  .checkRowActive {
+    background: rgba($secondaryColor, 0.2);
+  }
+  
+  .checkbox{
+    padding: 8px 12px;
+    display: flex;
+  }
+  
+  .separator {
+    height: 1px;
+    margin: 24px 0;
+    background: $grayColor;
+  }
+  
+  .cbTitle {
+    color: #0F6DA6;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.34px;
+    line-height: 19px;
+    text-align: center;
+    padding-bottom: 12px;
+  }

@@ -1,0 +1,55 @@
+@import '../../styles/variables';
+
+.container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.input {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+}
+
+.fake {
+  border-radius: 2px;
+  width: 16px;
+  height: 16px;
+  padding-right: 1px;
+  border: 1px solid $grayColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all $baseTransition;
+  color: #fff;
+}
+
+.alternate {
+  border-color: $secondaryColor;
+  background-color: rgba(106, 203, 244, 0.2);
+}
+
+.active {
+  background-color: $primaryColor;
+  border-color: $primaryColor;
+  .icon {
+    opacity: 1;
+  }
+}
+
+.icon {
+  opacity: 0;
+  transition: opacity $baseTransition;
+  font-size: 14px;
+}
+
+.label {
+  margin-left: 12px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+}

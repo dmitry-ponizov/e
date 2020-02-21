@@ -1,0 +1,108 @@
+@import '../../styles/variables';
+
+.container {
+  position: relative;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 4px 0 4px 16px;
+  border-bottom: 1px solid $ultraLightColor;
+}
+
+.containerSelected {
+  background: rgba($ultraLightColor, 0.5);
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    background: $primaryColor;
+    width: 2px;
+    height: 100%;
+  }
+}
+
+.body {
+  flex: 1;
+  padding-right: 16px;
+  height: 100%;
+  cursor: pointer;
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.content {
+  flex: 1;
+  font: 12px/16px $altFont;
+  color: $lightColor;
+  padding-right: 8px;
+}
+
+.title {
+  margin-bottom: 4px;
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  color: $darkColor;
+  .containerSelected & {
+    color: $primaryColor;
+  }
+}
+
+.sub {
+  display: block;
+}
+
+.badge {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #fff;
+  border-radius: 20px;
+  background: $primaryColor;
+}
+
+.mark {
+  color: $secondaryColor;
+}
+
+.unarchive {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $lightColor;
+  transition: all $baseTransition;
+  &:hover {
+    color: $primaryColor;
+  }
+}

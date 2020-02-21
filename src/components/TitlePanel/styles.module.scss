@@ -1,0 +1,44 @@
+@import '../../styles/variables';
+
+.container{
+  //margin-bottom: 15px;
+  background: $darkColor;
+  padding: 12px 32px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  @include mobile {
+    padding: 12px 16px;
+    flex-direction: column;
+  }
+}
+
+.title{
+  font-size: 18px;
+  line-height: 22px;
+  padding: 5px 0;
+  font-weight: 600;
+  @include mobile{
+    padding: 0;
+    margin: 0 0 8px;
+  }
+}
+
+.right{
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  @include mobile{
+    align-self: stretch;
+    margin: 0 -4px;
+    justify-content: center;
+  }
+  >*{
+    margin-left: 16px;
+    @include mobile{
+      margin: 0 4px;
+    }
+  }
+}

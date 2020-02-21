@@ -1,0 +1,2 @@
+
+Bootstrapper._serverTime = '2019-12-22 19:04:47'; Bootstrapper._clientIP = '99.149.240.75'; Bootstrapper.insertPageFiles(['https://tms.capitalone.com/capitalone/prod/code/90628d0881bdc5bacc10a3a0d6dd32ff.js?conditionId0=421879','https://tms.capitalone.com/capitalone/prod/code/a7dce62512a5d87ecceba49427ec7e29.js?conditionId0=456254','https://tms.capitalone.com/capitalone/prod/code/07a756e1ae0f690ce1afa131d4921105.js?conditionId0=2871983']);Bootstrapper.setPageSpecificDataDefinitionIds([22496]);

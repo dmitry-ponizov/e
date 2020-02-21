@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+
+.container {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1;
+  color: $darkColor;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  padding: 2px 0 0 20px;
+  min-height: 20px;
+  position: relative;
+  i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $primaryColor;
+    font-size: 20px;
+  }
+}

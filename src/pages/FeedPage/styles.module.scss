@@ -1,0 +1,91 @@
+@import '../../styles/variables';
+
+.criteriaBox {
+  background: #fff;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.checkboxRow{
+  transition: all $baseTransition;
+}
+
+.checkRowActive {
+  background: rgba($secondaryColor, 0.2);
+}
+
+.checkbox{
+  padding: 8px 12px;
+  display: flex;
+}
+
+.separator {
+  height: 1px;
+  margin: 24px 0;
+  background: $grayColor;
+}
+
+.search {
+  flex: 1;
+  position: relative;
+  background: $ultraLightColor;
+  border-radius: 2px;
+  display: flex;
+  padding: 0 16px 0 40px;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: $darkColor;
+}
+
+.searchField {
+  width: 100%;
+  height: 32px;
+  color: $darkColor;
+  font-size: 16px;
+  line-height: 20px;
+  ::-webkit-input-placeholder {
+    color: $grayColor;
+  }
+  :-moz-placeholder {
+    color: $grayColor;
+  }
+  :-ms-input-placeholder {
+    color: $grayColor;
+  }
+  ::-moz-placeholder {
+    color: $grayColor;
+    opacity: 1;
+  }
+}
+
+.contentBox {
+  background: #fff;
+  border-radius: 4px;
+}
+
+.contentHeader{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 12px 32px;
+  box-shadow: 0 1px 0 0 $ultraLightColor;
+}
+
+.multiSelect{
+  width: 184px;
+  margin: 0 0 0 16px;
+}
+
+.feedList{
+  padding: 24px 32px;
+}

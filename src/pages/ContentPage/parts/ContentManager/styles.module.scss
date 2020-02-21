@@ -1,0 +1,145 @@
+@import '../../../../styles/variables';
+
+.body {
+  height: 289px;
+  @include tablet {
+    height: auto;
+    max-height: 289px;
+  }
+}
+
+.table {
+  color: #fff;
+}
+
+.tableBody {
+  margin: 4px 4px 4px 0;
+  height: 240px;
+  overflow-y: scroll;
+  @include tablet {
+    height: auto;
+    max-height: 240px;
+  }
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background: rgba(106, 203, 244, 0.2);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #6acbf4;
+    border-radius: 3px;
+  }
+}
+
+.tableHead {
+  display: flex;
+  border-bottom: 1px solid $darkColor;
+  align-items: center;
+  padding: 8px 0;
+  margin-left: 12px;
+}
+.sortTools {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 8px;
+  flex: 1;
+}
+.sort {
+  display: flex;
+  align-items: center;
+  min-width: 42px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.sortLabel {
+  margin-left: 8px;
+}
+.rowList {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.tableRow {
+  display: table-row;
+}
+.td {
+  display: table-cell;
+  padding: 4px;
+  vertical-align: top;
+  transition: all $baseTransition;
+  cursor: pointer;
+  .activeItem & {
+    background-color: rgba($primaryColor, 0.2);
+    color: $secondaryColor;
+  }
+}
+
+.colCheck {
+  width: 36px;
+  padding-left: 12px;
+}
+.colLabel {
+  width: 60px;
+}
+.colValue {
+  width: auto;
+}
+.colStatus {
+  width: 26px;
+}
+
+.contentLabel {
+  display: block;
+  font-size: 12px;
+  line-height: 24px;
+  color: #eaeaea;
+}
+.content {
+  display: block;
+  color: $lightColor;
+  font-size: 14px;
+  line-height: 24px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.itemStatus {
+  cursor: pointer;
+  background-color: $successColor;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 4px;
+  &.off {
+    background-color: $darkColor;
+  }
+  .activeItem & {
+    background-color: $primaryColor;
+  }
+}
+
+.noResultsText {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  text-align: center;
+  color: $lightColor;
+}
+
+.thCheckbox {
+  border-color: #fff;
+}
+.tdCheckbox {
+  border-color: rgba($lightColor, 0.3);
+}
+.checkboxActive {
+  border-color: $secondaryColor;
+  background: $secondaryColor;
+  color: $darkColor;
+}

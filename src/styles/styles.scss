@@ -1,0 +1,109 @@
+// SCSS Variables
+@import 'variables';
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,600|Open+Sans:400');
+
+// Icons
+@font-face {
+  font-family: 'icomoon';
+  src: url('../assets/fonts/icomoon.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+// COMMON STYLES ------------------------------------------------------------------------------------------------------/
+html {
+  height: 100%;
+}
+
+body.engage-merchant-app {
+  height: 100%;
+  min-width: 320px;
+  margin: 0;
+  background: transparent;
+  overflow-y: scroll;
+  #engage-root{
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#engage-root,
+.engage-portal{
+  font: 500 14px/1.3 $baseFont;
+  color: $baseTextColor;
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+    font-family: inherit;
+  }
+
+  a,
+  input,
+  select,
+  button,
+  textarea {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  }
+
+  input[type='text']::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  input[type='text']::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  input[type='search']::-webkit-search-decoration,
+  input[type='search']::-webkit-search-cancel-button,
+  input[type='search']::-webkit-search-results-button,
+  input[type='search']::-webkit-search-results-decoration {
+    display: none;
+  }
+
+  a {
+    cursor: pointer;
+    color: $primaryColor;
+    text-decoration: none;
+    transition: color $baseTransition;
+    &:hover {
+      text-decoration: none;
+      color: $secondaryColor;
+    }
+  }
+
+  // HEADINGS 1-6--------------------------------------------------------------------------------------------------------/
+  h1 {
+    font: 600 32px/40px $baseFont;
+    margin: 0 0 20px;
+    @include mobile {
+      text-align: center;
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 16px;
+    }
+  }
+  h2 {
+    font: 600 22px/22px $baseFont;
+    color: $primaryColor;
+    padding-bottom: 12px;
+    border-bottom: 1px solid $grayColor;
+    margin: 0 0 12px;
+    @include mobile {
+      font-size: 20px;
+      line-height: 26px;
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,98 @@
+@import '../../styles/variables';
+
+.container {
+  padding: 30px;
+  min-height: 100vh;
+  background: #073653 url(../../assets/images/bg-login.jpg) no-repeat fixed 50% 0 / cover;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mobile {
+    padding: 0;
+    background: #fff;
+  }
+}
+
+.box {
+  background: #fff;
+  border-radius: 2px;
+  width: 440px;
+  padding: 32px 64px 77px;
+  text-align: left;
+  box-shadow: 0 8px 80px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform $baseTransition;
+  @include mobile {
+    border-radius: 0;
+    width: 100%;
+    padding: 15px;
+    box-shadow: none;
+    transition: none;
+  }
+  .containerInit & {
+    transform: scale(1);
+    opacity: 1;
+  }
+  .forgotLink {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.logo {
+  display: block;
+  height: 90px;
+  margin: 0 auto 35px;
+  @include mobile {
+    margin-bottom: 10px;
+  }
+}
+
+.title {
+  display: block;
+  padding: 5px 0;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 32px;
+  @include mobile {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+.message {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.container .remember {
+  margin: 0;
+}
+
+.linkHolder {
+  margin-top: -16px;
+  margin-bottom: 42px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .btnLogin {
+  width: 100%;
+  border-radius: 2px;
+  margin-bottom: 8px;
+}
+
+.signUpText {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}

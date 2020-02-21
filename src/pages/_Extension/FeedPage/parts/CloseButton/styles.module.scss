@@ -1,0 +1,30 @@
+@import '../../../../../styles/variables';
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.circle {
+    background: $darkColor;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.closeIcon {
+    font-size: 38px;
+    color: $lightColor;
+}
+
+.title {
+    color: #FFFFFF;	
+    font-size: 32px;	
+    font-weight: 600;	
+    line-height: 39px;
+    margin-left: 16px;
+}

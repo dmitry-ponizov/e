@@ -1,0 +1,252 @@
+    /*
+OnlineOpinion v5.9.12
+Released: 07/18/2017. Compiled 07/05/2018 02:16:12 PM -0500
+Branch: 5.9.12 35b5b2ad883c34f46ba08db42faadc591299a198
+    Components: Full
+    UMD: disabled
+The following code is Copyright 1998-2018 Opinionlab, Inc. All rights reserved. Unauthorized use is prohibited. This product and other products of OpinionLab, Inc. are protected by U.S. Patent No. 6606581, 6421724, 6785717 B1 and other patents pending. http://www.opinionlab.com
+    */
+    
+    /* global window, OOo */
+    
+    /* [+] Tab configuration */
+    (function (w, o) {
+        'use strict';
+    
+        var OpinionLabInit = function () {
+     var ccOverall = 'NumberRatings',
+                xFactor = Math.random();
+    
+            if (xFactor >= 0.66) {
+                ccOverall = 'EmoticonRatings';
+            } else if (xFactor >= 0.33) {
+                ccOverall = 'PlusMinusRatings';
+            }
+    
+  
+
+        o.tabFeedbackShow = function () {
+            document.getElementById('oo_tab').style.display = 'none';
+            o.oo_feedbackTab = new o.Ocode({
+                referrerRewrite: w.location.origin + w.location.pathname + '?ccOverall=' + ccOverall,
+                cookie: {
+                    name: 'oo_tab',
+                    type: 'page',
+                    expiration: 3600
+                },
+                clickTalePID: 20,
+                tealeafCookieName: 'v1st',
+                customVariables: {
+                    TLTSID: OOo.readCookie('TLTSID'), 
+                    dfsedkey: OOo.readCookie("dfsedskey"),
+                    s_vi: OOo.readCookie('s_vi'),
+                    pagename: typeof s !== 'undefined' ? (typeof s.pageName !== 'undefined' ? s.pageName : '') : '',
+                    toggleAttempted: OOo.readCookie("toggleAttempted")
+                },
+            });
+            o.oo_launch(event, 'oo_feedbackTab');
+        };
+        o.createTab = function (event) {
+            var el,
+                v_tab_cust = document.createElement('a'),
+                v_span_screen_reader = document.createElement('span'),
+                v_span_icon = document.createElement('span'),
+                v_span_img = document.createElement('img')
+            v_span_img.src = '/global/images/onlineopinionV5/oo_tab_icon_retina.gif';
+            v_tab_cust.href = '#';
+            v_tab_cust.id = 'oo_tab';
+            v_tab_cust.className = 'oo_tab_right';
+            v_tab_cust.style.index = '0';
+            v_tab_cust.appendChild(v_span_img);
+            v_tab_cust.innerHTML += 'Feedback';
+            v_span_screen_reader.className = 'screen_reader';
+            v_span_screen_reader.innerHTML = 'Launches comment card in new window';
+
+            v_tab_cust.appendChild(v_span_screen_reader);
+            //v_tab_cust.appendChild(v_span_icon);
+
+            document.body.appendChild(v_tab_cust);
+            o.addEventListener(v_tab_cust, 'click', function () {
+                o.tabFeedbackShow(event);
+            }, false);
+        };
+        o.createTab();
+	
+        o.launchFeedbackPay = function () {
+    		o.oo_feedbackPay = new o.Ocode({
+        		referrerRewrite: w.location.origin + w.location.pathname + '?ccOverall=' + ccOverall,
+        		tealeafCookieName: "v1st",
+                    clickTalePID: 20,
+                    customVariables: {
+                        s_vi: OOo.readCookie("s_vi"),
+                        dfsedskey: OOo.readCookie("dfsedskey"),
+                        pagename: "undefined" != typeof s && "undefined" != typeof s.pageName ? s.pageName : "",
+                        dcversion: OOo.readCookie("dcversion"),
+                        toggleAttempted: OOo.readCookie("toggleAttempted")
+                    }
+    		});
+			 o.oo_launch(event, 'oo_feedbackPay');
+    		};
+    		/* payment plan start */
+    		 o.oo_feedback = new o.Ocode({
+                referrerRewrite: {
+                    searchPattern: /:\/\/[^\/]*/,
+                    replacePattern: '://collections.discover.com'
+                },
+                tealeafCookieName: "v1st",
+                clickTalePID: 20,
+                customVariables: {
+                    s_vi: OOo.readCookie("s_vi"),
+                    dfsedskey: OOo.readCookie("dfsedskey"),
+                    pagename: "undefined" != typeof s && "undefined" != typeof s.pageName ? s.pageName : "",
+                    dcversion: OOo.readCookie("dcversion"),
+                    toggleAttempted: OOo.readCookie("toggleAttempted")
+                },
+            });
+            o.oo_feedback_addauth = new o.Ocode({
+    		 events: {
+                    onSingleClick:15
+                },
+                cookie: {
+                    name: 'oo_AUCancelBtnClick',
+                    type: 'domain',
+                    expiration: 51840000
+                },
+                referrerRewrite: {
+                    searchPattern: /:\/\/[^\/]*/,
+                    replacePattern: '://exit.card.discover.com/cardmembersvcs/cardinventory/action/manageAuthBuyer#'
+                },
+                tealeafCookieName: 'v1st',
+                customVariables: {
+                    s_vi: OOo.readCookie("s_vi"),
+                    dfsedskey: OOo.readCookie("dfsedskey"),
+                    pagename: typeof s != 'undefined' ? (typeof s.pageName != 'undefined' ? s.pageName : "") :"",
+                    dcversion: OOo.readCookie("dcversion"),
+                    toggleAttempted: OOo.readCookie("toggleAttempted")
+                }
+    		});
+    		 
+    
+            o.oo_launch = function(e, feedback) {
+                var evt = e || window.event;
+                o[feedback].show(evt);
+            };
+    
+    			/* payment plan end */
+    			
+    			 o.oo_click = new o.Ocode({
+                events: {
+                    onSingleClick: 100 /* 30 for delivery */
+                },
+                cookie: {
+                    name: 'oo_click',
+                    type: 'domain',
+                    expiration: 2592000
+                },
+                referrerRewrite: {
+                    searchPattern: /:\/\/[^\/]*/,
+                    replacePattern: '://exit.collections.discover.com'
+                },
+                tealeafCookieName: 'v1st',
+                customVariables: {
+                    s_vi: OOo.readCookie("s_vi"),
+                    dfsedskey: OOo.readCookie("dfsedskey"),
+                    pagename: typeof s != 'undefined' ? (typeof s.pageName != 'undefined' ? s.pageName : "") :"",
+                    dcversion: OOo.readCookie("dcversion"),
+                    toggleAttempted: OOo.readCookie("toggleAttempted")
+                }
+            });
+    		
+    		o.oo_itpCalcelBtnClick = new o.Ocode({
+    		 events: {
+                    onSingleClick: 50
+                },
+                cookie: {
+                    name: 'oo_itpCalcelBtnClick',
+                    type: 'domain',
+                    expiration: 2592000
+                },
+                referrerRewrite: {
+                    searchPattern: /:\/\/[^\/]*/,
+                    replacePattern: '://exit.card.discover.com/cardmembersvcs/identitytheftweb/itp/viewITP'
+                },
+                tealeafCookieName: 'v1st',
+                customVariables: {
+                    s_vi: OOo.readCookie("s_vi"),
+                    dfsedskey: OOo.readCookie("dfsedskey"),
+                    pagename: typeof s != 'undefined' ? (typeof s.pageName != 'undefined' ? s.pageName : "") :"",
+                    dcversion: OOo.readCookie("dcversion"),
+                    toggleAttempted: OOo.readCookie("toggleAttempted")
+                }
+    		});
+    		o.oo_cancelBtnClick = new o.Ocode({
+    			events: {
+    			onSingleClick: 25
+    			},
+    			cookie: {
+    				name: 'oo_balanceTransferPage',
+    				type: 'domain',
+    				expiration: 5184000
+    			},
+    			referrerRewrite: {
+    				searchPattern: /:\/\/[^\/]*/,
+    				replacePattern: '://entry.card.discover.com/cardmembersvcs/portfoliobt/app/toRequestPage?execution=e1s1'
+    			},
+    			tealeafCookieName: 'v1st',
+    			customVariables: {
+    				s_vi: OOo.readCookie("s_vi"),
+    				dfsedskey: OOo.readCookie("dfsedskey"),
+    				pagename: typeof s != 'undefined' ? (typeof s.pageName != 'undefined' ? s.pageName : "") :"",
+    				dcversion: OOo.readCookie("dcversion"),
+    				toggleAttempted: OOo.readCookie("toggleAttempted")
+    			}
+    		});
+    
+    		 /* ADA feedback starts */
+        o.launchInlineFeedback = function () {
+			o.oo_inline_feedback = new o.Ocode({
+          customVariables: {
+            s_vi: o.readCookie('s_vi'),
+            pagename: typeof s !== 'undefined' ? typeof s.pagename !== 'undefined' ? s.pagename : '' : '',
+            dfsedskey: o.readCookie('dfsedskey')
+          }
+        });
+            o.oo_launch(event, 'oo_inline_feedback');
+        }
+         /* ADA feedback end */
+        // Commenting out the following code since it seems it is not being used:
+        // o.oo_onSingleClick = function (e, feedback) {
+        //     var evt = e || window.event;
+        //     o[feedback].show(evt, 'onSingleClick');
+        // };
+
+        if (typeof OOo !== 'undefined' && typeof OOo.releaseDetails !== 'object') { OOo.releaseDetails = []; }
+        OOo.releaseDetails.push({
+              author: 'YW',
+              timeStamp: '10/28/2019, 17:48:33',
+              fileName: 'oo_conf.js',
+             fileVersion: '2.0',
+             ticketNumber: 'DYN-1059341'
+        });
+        };
+    
+    OpinionLabInit();
+        // Adds the event message listener for Clicktale integration
+        w.receiveMessage = function (e) {
+            // Make sure message is received from OpinionLab Comment Card
+            if (e.origin === 'https://secure.opinionlab.com') {
+                // Check that ClickTale object exists and that data message is not blank
+                if (typeof window.ClickTaleEvent === 'function' && e.data !== '') {
+                    var ctData = JSON.parse(e.data),
+                        clickTaleEvent = window.ClickTaleEvent;
+                    // Loop through JSON data object and fire events for each key
+                    for (var key in ctData) {
+                        clickTaleEvent(key + ':' + ctData[key]);
+                    }
+                }
+            }
+        };
+    
+        //o.addEventListener(w, 'message', receiveMessage, false);
+    
+    })(window, OOo);
