@@ -57,7 +57,7 @@
     "react": "^16.11.0",
     "react-app-polyfill": "^1.0.6",
     "react-day-picker": "^7.4.0",
-    "react-dev-utils": "^10.2.0",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.11.0",
     "react-i18next": "^11.2.1",
     "react-input-mask": "^2.0.4",
